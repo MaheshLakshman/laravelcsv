@@ -31,7 +31,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
  Authorization = No
 
- Parameter = 
+ Parameters = 
 
            {
             "name":"mahesh",
@@ -55,7 +55,7 @@ Response
 
  Authorization = No
 
- Parameter = 
+ Parameters = 
 
            {
             "email":"maheshlakshmananc@gmail.com",
@@ -74,3 +74,21 @@ Response
 }
 
 ### 3.Upload csv file
+
+ Method = POST,
+
+ Url = localhost/laravelcsv/public/api/auth/upload
+
+ Authorization = Yes (Pass your token from login api)
+
+Parameters = (use form-data file option in postman)
+
+           {
+            "csv_file": *"Select File"*,
+            }
+Response
+
+           {
+                "success": true,
+                "msg": "Success"
+            }
