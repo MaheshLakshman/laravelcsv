@@ -83,9 +83,9 @@ Response
 
 Parameters = (use form-data file option in postman)
 
-           {
-            "csv_file": *"Select File"*,
-            }
+           
+            csv_file <button class="button-save large">Big Fat Button</button>,
+            
 Response
 
            {
