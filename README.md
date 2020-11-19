@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Laravel with CSV file upload
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
@@ -21,41 +21,56 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+### Login
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+#### 1. Register a User
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+ Method = POST,
 
-## Laravel Sponsors
+ Url = localhost/laravelcsv/public/api/register
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+ Authorization = No
 
-### Premium Partners
+ Parameter = 
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+           {
+            "name":"mahesh",
+            "email":"maheshlakshmananc@gmail.com",
+            "password":"12345678",
+            "password_confirmation":"12345678"
+            }
 
-## Contributing
+Response
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+       {
+            "success": true,
+            "msg": "Registered Successfully..!"
+        }
+#### 2. Login
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+ Method = POST,
 
-## Security Vulnerabilities
+ Url = localhost/laravelcsv/public/api/login
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+ Authorization = No
 
-## License
+ Parameter = 
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+           {
+            "email":"maheshlakshmananc@gmail.com",
+            "password":"12345678"
+            }
+
+Response
+
+        {
+            "success": true,
+            "data": {
+                "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2xhcmF2ZWxjc3ZcL3B1YmxpY1wvYXBpXC9sb2dpbiIsImlhdCI6MTYwNTc2NzI3NiwiZXhwIjoxNjA1NzcwODc2LCJuYmYiOjE2MDU3NjcyNzYsImp0aSI6Im5QM0ZmYk5TMTZSNHYzMmEiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.zbALhoCYX_b8_uesFhOvGAGag42f3nLxMOu1Od92pgs",
+            "token_type": "bearer",
+            "expires_in": 3600
+        }
+}
+
+### 3.Upload csv file
