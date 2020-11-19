@@ -83,12 +83,43 @@ Response
 
 Parameters = (use form-data file option in postman)
 
-           
-            csv_file <button class="button-save large">Big Fat Button</button>,
-            
+           {
+            "csv_file": *"Select File"*,
+            }
 Response
 
            {
                 "success": true,
                 "msg": "Success"
             }
+
+### Logic
+
+1. Large file divided into smaller files and process each file in background using queue
+operation in laravel.
+
+
+##### Note: 
+1. pls add username and password of mailtrap.io in .env file for geting failed job email
+
+2.pls set QUEUE_CONNECTION=database in .env file
+
+
+##### action
+
+1. Download
+
+2. Replace .env.example to .env file and place your database name and password for your DB Access.
+
+3. Install packages using "composer install" command.
+
+4. Run Database migration for creating tables in your database, "php artisan migrate".
+
+5. Generate secret key for your JWT "php artisan jwt:secret" it will create a JWT secret key in your .env file
+
+6. process queue by using 
+
+"php artisan queue:work" command
+
+remove failed job by using "php artisan queue:flush" command
+
